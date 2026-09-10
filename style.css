@@ -1,0 +1,342 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: #f5f1ea;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 6px),
+    radial-gradient(circle at 80% 20%, #fff4e6 0%, #f5f1ea 70%);
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.bate-container {
+  max-width: 1360px;
+  width: 100%;
+  background: #fffcf7;
+  border: 1px solid #1a1a1a;
+  box-shadow: 18px 18px 0 #1a1a1a;
+  padding: 2rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bate-container::before,
+.bate-container::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #1a1a1a;
+  pointer-events: none;
+}
+.bate-container::before { top: 14px; left: 14px; border-right: none; border-bottom: none; }
+.bate-container::after { bottom: 14px; right: 14px; border-left: none; border-top: none; }
+
+.bate-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bate-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.bate-logo span {
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-left: 0.5rem;
+  color: #666;
+}
+
+.bate-nav {
+  display: flex;
+  gap: 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.bate-nav a {
+  text-decoration: none;
+  color: #1a1a1a;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.bate-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #b0570b;
+  transition: width 0.25s ease;
+}
+
+.bate-nav a:hover::after, .bate-nav .current::after { width: 100%; }
+.bate-nav .current { color: #b0570b; }
+
+.bate-hero {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 2rem 4rem;
+  margin-bottom: 3.5rem;
+}
+
+.hero-type .kicker {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #b0570b;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.hero-type h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: clamp(3.8rem, 10vw, 6.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+
+.hero-type h1 .light { font-weight: 300; color: #6b6b6b; }
+
+.hero-type h1 .underline-sketch {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-type h1 .underline-sketch::after {
+  content: '';
+  position: absolute;
+  bottom: 0.15em; left: 0;
+  width: 100%; height: 0.08em;
+  background: #1a1a1a;
+  transform: skewX(-12deg);
+}
+
+.hero-type .bate-desc {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 520px;
+  color: #333;
+  border-left: 3px solid #1a1a1a;
+  padding-left: 1.5rem;
+  margin-bottom: 2.2rem;
+  font-weight: 300;
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; }
+
+.btn-bate {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 1rem 2rem;
+  border: 1.5px solid #1a1a1a;
+  background: transparent;
+  color: #1a1a1a;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.2s;
+}
+
+.btn-bate:hover {
+  background: #1a1a1a;
+  color: #fffcf7;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #b0570b;
+}
+
+.btn-bate.solid { background: #1a1a1a; color: #fffcf7; }
+.btn-bate.solid:hover { background: #b0570b; border-color: #b0570b; box-shadow: 5px 5px 0 #1a1a1a; }
+
+.hero-visual-bate { display: flex; flex-direction: column; margin-top: 1rem; }
+
+.tape-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+.tape-item {
+  background: #1a1a1a;
+  color: #fffcf7;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.tape-item:nth-child(2) { background: #f0e7db; color: #1a1a1a; }
+.tape-item:nth-child(3) { background: #b0570b; color: #fffcf7; }
+.tape-item:nth-child(4) { background: #fffcf7; color: #1a1a1a; }
+
+.tape-item span:last-child { font-weight: 300; font-size: 0.8rem; opacity: 0.85; }
+
+.tape-note {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  text-align: right;
+  font-style: italic;
+  border-top: 1px dashed #1a1a1a;
+  padding-top: 1rem;
+}
+
+.bate-marquee {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 0.9rem 0;
+  margin: 2rem 0 3rem;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background: #fffcf7;
+}
+
+.marquee-track {
+  display: flex;
+  animation: scroll-left 24s linear infinite;
+  gap: 3rem;
+  padding-right: 2rem;
+}
+
+.marquee-track span { font-weight: 500; }
+.marquee-track .outline { color: transparent; -webkit-text-stroke: 1px #1a1a1a; }
+.marquee-track .accent { color: #b0570b; }
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.bate-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #1a1a1a;
+  border-left: 1px solid #1a1a1a;
+}
+
+.feature-cell {
+  border-right: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 210px;
+  transition: background 0.2s;
+}
+
+.feature-cell:hover { background: #f0e7db; }
+
+.feature-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #b0570b;
+  margin-bottom: 1.2rem;
+}
+
+.feature-cell h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.feature-cell p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  font-weight: 300;
+  margin-top: auto;
+}
+
+.bate-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #1a1a1a;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6b6b6b;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { text-decoration: none; color: #1a1a1a; }
+.footer-links a:hover { color: #b0570b; }
+
+@media (max-width: 900px) {
+  .bate-hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  .tape-stack { transform: rotate(0deg); }
+  .bate-features { grid-template-columns: 1fr 1fr; }
+  .bate-container { box-shadow: 12px 12px 0 #1a1a1a; padding: 1.5rem; }
+  .bate-header { flex-direction: column; align-items: flex-start; }
+  .bate-nav { flex-wrap: wrap; gap: 1.2rem; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 0.8rem; }
+  .bate-container { box-shadow: 6px 6px 0 #1a1a1a; padding: 1.2rem; }
+  .bate-logo { font-size: 1.6rem; }
+  .hero-type h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .hero-type .bate-desc { font-size: 1rem; padding-left: 1rem; }
+  .bate-features { grid-template-columns: 1fr; }
+  .feature-cell { min-height: auto; padding: 1.5rem; }
+  .marquee-track { font-size: 1.1rem; gap: 1.5rem; }
+  .bate-footer { flex-direction: column; align-items: flex-start; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; }
+  .btn-bate { width: 100%; justify-content: center; }
+  .hero-actions { flex-direction: column; width: 100%; }
+}
